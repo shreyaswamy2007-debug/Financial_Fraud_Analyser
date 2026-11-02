@@ -553,14 +553,9 @@ with gr.Blocks(title="FraudShield AI Pro") as demo:
             dash_btn = gr.Button("Refresh", variant="primary")
             dash_stats = gr.HTML()
             dash_table = gr.Dataframe(value=history_df(), interactive=False)
-            csv_btn = gr.Button("Export history to CSV")
-            csv_file = gr.File(label="Download")
             dash_btn.click(lambda: (stats_html(), history_df()), None, [dash_stats, dash_table])
-            csv_btn.click(export_csv, None, csv_file)
-
-        # ---------- Model info ----------
-        with gr.Tab("🧠 Model"):
-            gr.Markdown(model_info())
+            
+        
 
         # ---------- Tips ----------
         with gr.Tab("💡 Safety Tips"):
